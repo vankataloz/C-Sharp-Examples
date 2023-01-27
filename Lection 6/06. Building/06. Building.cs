@@ -1,36 +1,34 @@
 ﻿using System;
- 
-namespace MyApp
+
+namespace _06._Building
 {
-    internal class Program
+    class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             int floors = int.Parse(Console.ReadLine());
             int rooms = int.Parse(Console.ReadLine());
-            int floorNumber = floors;
 
-            for (int currentFloor = 1; currentFloor <= floors; currentFloor++)
+
+            for (int currentFloor = floors; currentFloor >= 1; currentFloor--)
             {
                 string floorTemplate = "";
+
                 for (int currentRoom = 0; currentRoom < rooms; currentRoom++)
                 {
-                    if (currentFloor == 1)
+                    if (floors == currentFloor)
                     {
-                        floorTemplate += $"L{floorNumber}{currentRoom} ";
+                        floorTemplate += $"L{currentFloor}{currentRoom} ";
                     }
                     else if (currentFloor % 2 == 0)
                     {
-                        floorTemplate += $"A{floorNumber}{currentRoom} ";
+                        floorTemplate += $"O{currentFloor}{currentRoom} ";
                     }
                     else
                     {
-                        floorTemplate += $"O{floorNumber}{currentRoom} ";
+                        floorTemplate += $"A{currentFloor}{currentRoom} ";
                     }
-
                 }
-                floorNumber--;
-
                 Console.WriteLine(floorTemplate);
             }
         }
